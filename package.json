@@ -1,0 +1,25 @@
+{
+  "name": "layerproof-remotion",
+  "version": "1.0.0",
+  "description": "LayerProof teaser videos built with Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render layerproof-problem --output out/layerproof-problem.mp4 && remotion render layerproof-solution --output out/layerproof-solution.mp4",
+    "render:problem": "remotion render layerproof-problem --output out/layerproof-problem.mp4",
+    "render:solution": "remotion render layerproof-solution --output out/layerproof-solution.mp4",
+    "render:all": "npm run render:problem && npm run render:solution",
+"typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.434",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/                           
+  dist/             
+  out/                                    
+  .DS_Store
+  *.DS_Store
+  *.mp4
+  *.mov                                     
+  *.webm
+  .env                                      
+  .env.local                              
+  .env.*.local      
+  *.log   
