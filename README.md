@@ -20,7 +20,9 @@ npm run dev
 | ID | Component | Description | Dimensions | Duration | Frames |
 |---|---|---|---|---|---|
 | `layerproof-problem` | `LayerProofProblem` | Teaser 1 — The Problem | 1920×1080 | 33s | 990 |
-| `layerproof-solution` | `LayerProofSolution` | Teaser 2 — The Solution | 1920×1080 | 44s | 1330 |
+| `layerproof-solution` | `LayerProofSolution` | Teaser 2 — The Solution | 1920×1080 | 44.3s | 1330 |
+| `layerproof-vellum-master` | `LayerProofVellumMaster` | Vellum — Master video | 1920×1080 | 46.1s | 1384 |
+| `layerproof-vellum-node-demo` | `LayerProofVellumNodeDemo` | Vellum — Node demo | 1920×1080 | 24.1s | 724 |
 | `layerproof-gif-prompt` | `PromptMultiPlatform` | GIF — Prompt → Editor Generation → Float (loopable) | 1270×760 | 12s | 360 |
 | `layerproof-gif-slides` | `AISlideStack` | GIF — AI Slide Stack (loopable) | 1200×675 | 6.8s | 205 |
 
@@ -33,8 +35,11 @@ npm run render:problem
 # Render Teaser 2
 npm run render:solution
 
-# Render both
+# Render both teasers
 npm run render:all
+
+# Render Vellum master
+npm run render:vellum
 
 # Type check only
 npm run typecheck
@@ -106,7 +111,7 @@ All scenes are built from an approved script. The workflow is:
 ## Project Structure
 
 ```
-layerproof/
+layerproof-remotion/
 ├── CLAUDE.md                        ← Agent memory: brand, scenes, spec
 ├── scripts/                         ← Pre-production scripts (source of truth)
 │   ├── layerproof-problem.md        ← Teaser 1 script (draft → approved)
@@ -130,10 +135,20 @@ layerproof/
 │   │   ├── theme.ts                 ← ThemeProvider + useTheme()
 │   │   └── themes/
 │   │       └── bold.ts              ← Bold theme tokens
+│   ├── compositions/
+│   │   ├── LayerProofProblem.tsx    ← Teaser 1 composition
+│   │   ├── LayerProofSolution.tsx   ← Teaser 2 composition
+│   │   ├── LayerProofVellumMaster.tsx
+│   │   ├── LayerProofVellumNodeDemo.tsx
+│   │   └── gifs/                   ← GIF compositions
 │   └── components/
 │       └── scenes/
-│           ├── problem/             ← Teaser 1 scene components
-│           └── solution/            ← Teaser 2 scene components
+│           ├── ProblemScenes.tsx    ← Teaser 1 scene components
+│           ├── SolutionScenes.tsx   ← Teaser 2 scene components
+│           ├── problem/             ← Teaser 1 sub-scenes
+│           ├── solution/            ← Teaser 2 sub-scenes
+│           └── vellum/             ← Vellum sub-scenes
+├── out/                             ← Rendered video output
 ├── package.json
 └── tsconfig.json
 ```
