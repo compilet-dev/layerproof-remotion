@@ -8,6 +8,7 @@
     "render:problem": "remotion render layerproof-problem --output out/layerproof-problem.mp4",
     "render:solution": "remotion render layerproof-solution --output out/layerproof-solution.mp4",
     "render:all": "npm run render:problem && npm run render:solution",
+    "render:vellum": "remotion render layerproof-vellum-master --output out/layerproof-vellum-master.mp4",
 "typecheck": "tsc --noEmit"
   },
   "dependencies": {

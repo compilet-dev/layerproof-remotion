@@ -116,19 +116,22 @@ export const Cursor: React.FC<CursorProps> = ({
         );
       })}
 
-      {/* Click ripples */}
-      {clickFrames.map((cf, i) => (
-        <div
-          key={i}
-          style={{
-            position: 'absolute',
-            left:     cursorX * containerWidth,
-            top:      cursorY * containerHeight,
-          }}
-        >
-          <ClickRipple clickFrame={cf} frame={frame} />
-        </div>
-      ))}
+      {/* Click ripples — anchored to where the click occurred */}
+      {clickFrames.map((cf, i) => {
+        const { x: cfX, y: cfY } = positionAt(cf, sortedKFs);
+        return (
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              left:     cfX * containerWidth,
+              top:      cfY * containerHeight,
+            }}
+          >
+            <ClickRipple clickFrame={cf} frame={frame} />
+          </div>
+        );
+      })}
 
       {/* Cursor */}
       <div

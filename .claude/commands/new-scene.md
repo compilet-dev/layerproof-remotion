@@ -7,9 +7,12 @@ Creates a new Remotion scene component for LayerProof teasers.
 /new-scene [scene-name] [teaser-number] [duration-in-seconds] [description]
 ```
 
+Teaser numbers: `1` = problem, `2` = solution, `3` = vellum.
+
 ## Example
 ```
 /new-scene PlatformChaos 1 3 "Multiple platform cards orbit in chaotic arrangement, desaturated color, tension building"
+/new-scene VellumNewFeature 3 4 "Node editor demo showing a new connection type"
 ```
 
 ## What this command does
@@ -31,6 +34,17 @@ Creates a new Remotion scene component for LayerProof teasers.
      - SplitExplosion: 510–890
      - UIFloat: 890–1100
      - SolutionTagline: 1100–1330
+   - **Teaser 3 (Vellum)** → `src/compositions/LayerProofVellumMaster.tsx` (1260 total frames):
+     - VellumHook: 0–100
+     - VellumNodeDemo: 100–400
+     - VellumConsistency: 400–490
+     - VellumFiveAngles: 490–720
+     - VellumEfficient: 720–810
+     - VellumPlatformScale: 810–1080
+     - VellumCTA: 1080–1260
+     - Scene file path: `src/components/scenes/vellum/[SceneName].tsx`
+     - Light theme: white/`#F5F5F7` canvas, indigo `#6366F1` wires, amber `#F59E0B` accents
+     - Script source of truth: `scripts/layerproof-vellum-master.md`
 5. Runs the scene reviewer agent to validate the output
 
 ## Agent Instructions

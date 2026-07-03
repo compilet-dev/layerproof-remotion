@@ -219,6 +219,18 @@ const { glass } = useTheme();
 | `layerproof-gif-link` | 300 | 1200×630 |
 | `layerproof-gif-prompt` | 360 | 1270×760 |
 | `layerproof-gif-slides` | 205 | 1200×675 |
+| `layerproof-vellum-master` | 1260 | 1920×1080 |
+
+### Vellum Composition Notes
+
+`layerproof-vellum-master` is a 42s product walkthrough for the **AI Image Lab** feature. It uses a **light theme** — distinct from the dark bold theme in problem/solution:
+
+- Canvas background: `#F5F5F7` (node-editor scenes), `#FFFFFF` (text beats)
+- Wire/accent color: indigo `#6366F1`
+- Highlight color: amber `#F59E0B`
+- Typography: Inter 700 headings, weight 400 body
+
+Scene files live in `src/components/scenes/vellum/`. Node-editor scenes use `positionAt` + `Cursor` for animated cursor tracking, and SVG `stroke-dashoffset` for bezier wire draw-in animations.
 
 ## Render Commands
 ```bash

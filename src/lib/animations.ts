@@ -199,6 +199,12 @@ export function countChars(text: string): number {
   return [...text].length;
 }
 
+/** Evaluates a cubic bezier curve at parameter t (0–1) for a single axis. */
+export function bezierPoint(t: number, p0: number, p1: number, p2: number, p3: number): number {
+  const mt = 1 - t;
+  return mt * mt * mt * p0 + 3 * mt * mt * t * p1 + 3 * mt * t * t * p2 + t * t * t * p3;
+}
+
 // ─── Cursor Position Interpolation ───────────────────────────────────────────
 
 /**

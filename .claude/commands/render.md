@@ -4,7 +4,7 @@ Renders one or both LayerProof teaser videos.
 
 ## Usage
 ```
-/render [problem|solution|all|gif-link|gif-prompt|gif-slides]
+/render [problem|solution|all|gif-link|gif-prompt|gif-slides|vellum]
 ```
 
 ## Examples
@@ -13,6 +13,7 @@ Renders one or both LayerProof teaser videos.
 /render solution
 /render all
 /render gif-link
+/render vellum
 ```
 
 ## What this command does
@@ -35,6 +36,11 @@ Renders one or both LayerProof teaser videos.
 | `gif-link` | `layerproof-gif-link` | `out/layerproof-gif-link.gif` | 300 | 1200×630 |
 | `gif-prompt` | `layerproof-gif-prompt` | `out/layerproof-gif-prompt.gif` | 360 | 1270×760 |
 | `gif-slides` | `layerproof-gif-slides` | `out/layerproof-gif-slides.gif` | 205 | 1200×675 |
+
+### Vellum Videos
+| Argument | Composition ID | Output | Frames | Dimensions |
+|---|---|---|---|---|
+| `vellum` | `layerproof-vellum-master` | `out/layerproof-vellum-master.mp4` | 1260 | 1920×1080 |
 
 ## Agent Instructions
 Run these bash commands in sequence:
