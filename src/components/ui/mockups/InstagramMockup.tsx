@@ -1,5 +1,5 @@
 import React from 'react';
-import { interpolate } from 'remotion';
+import { interpolate, staticFile } from 'remotion';
 import { useTheme } from '../../../lib/theme';
 import Avatar from './shared/Avatar';
 import LogoAvatar from './shared/LogoAvatar';
@@ -8,7 +8,8 @@ import ContentLines from './shared/ContentLines';
 export const InstagramMockup: React.FC<{
   charsToShow: number;
   frame: number;
-}> = ({ charsToShow, frame }) => {
+  imageSrc?: string;
+}> = ({ charsToShow, frame, imageSrc }) => {
   const theme = useTheme();
   const caption = [
     '🚀 Big news! Our AI feature is live.',
@@ -69,7 +70,8 @@ export const InstagramMockup: React.FC<{
 
       {/* ── 1:1 Image ── */}
       <img
-        src={require('../../../assets/post_instagram.jpg')}
+        src={imageSrc ?? staticFile('social-posts/post_instagram.jpg')}
+        onError={(e) => { (e.target as HTMLImageElement).src = require('../../../assets/post_instagram.jpg'); }}
         style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover' }}
       />
 

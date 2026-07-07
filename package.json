@@ -9,9 +9,11 @@
     "render:solution": "remotion render layerproof-solution --output out/layerproof-solution.mp4",
     "render:all": "npm run render:problem && npm run render:solution",
     "render:vellum": "remotion render layerproof-vellum-master --output out/layerproof-vellum-master.mp4",
-"typecheck": "tsc --noEmit"
+    "render:brandkit": "remotion render layerproof-brand-kit --output out/layerproof-brand-kit.mp4",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "@remotion/cli": "^4.0.0",
     "@remotion/google-fonts": "^4.0.434",
     "react": "^18.0.0",

@@ -9,9 +9,11 @@
 import { continueRender, delayRender, staticFile } from "remotion";
 import { loadFont as loadDMSans, fontFamily as DM_SANS_FAMILY_VALUE } from "@remotion/google-fonts/DMSans";
 import { loadFont as loadAnton, fontFamily as ANTON_FAMILY_VALUE } from "@remotion/google-fonts/Anton";
+import { loadFont as loadRoboto, fontFamily as ROBOTO_FAMILY_VALUE } from "@remotion/google-fonts/Roboto";
 
 export const DM_SANS_FAMILY = DM_SANS_FAMILY_VALUE;
 export const ANTON_FAMILY = ANTON_FAMILY_VALUE;
+export const ROBOTO_FAMILY = ROBOTO_FAMILY_VALUE;
 
 const FONT_TIMEOUT_MS = 118_000;
 
@@ -46,6 +48,7 @@ if (typeof document !== "undefined") {
     waitForFonts(),
     loadDMSans("normal", { weights: ["700"] }).waitUntilDone(),
     loadAnton("normal", { weights: ["400"] }).waitUntilDone(),
+    loadRoboto("normal", { weights: ["400", "700"] }).waitUntilDone(),
   ])
     .then(() => continueRender(delay))
     .catch(() => continueRender(delay));

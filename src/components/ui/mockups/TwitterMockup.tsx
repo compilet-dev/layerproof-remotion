@@ -1,5 +1,5 @@
 import React from 'react';
-import { interpolate } from 'remotion';
+import { interpolate, staticFile } from 'remotion';
 import { useTheme } from '../../../lib/theme';
 import LogoAvatar from './shared/LogoAvatar';
 import ContentLines from './shared/ContentLines';
@@ -55,7 +55,7 @@ export const TwitterMockup: React.FC<{
       {/* ── 16:9 Image ── */}
       <div style={{ padding: '0 16px 10px' }}>
         <div style={{ borderRadius: 12, overflow: 'hidden', border: '1px solid #eff3f4' }}>
-          <PostImage ratio="16 / 9" src={require('../../../assets/post_twitter.jpg')} platformColor="#1DA1F2" />
+          <PostImage ratio="16 / 9" src={staticFile('social-posts/post_twitter.jpg')} platformColor="#1DA1F2" />
         </div>
       </div>
 

@@ -10,6 +10,21 @@ const DARKER_GROTESQUE = "'Darker Grotesque', 'Inter', sans-serif";
 
 // ─── SVG Icons ────────────────────────────────────────────────────────────────
 
+const IconGem: React.FC = () => (
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M9 2L13.5 6.5L9 16L4.5 6.5L9 2Z" fill="white" fillOpacity="0.9" />
+    <path d="M4.5 6.5H13.5" stroke="white" strokeOpacity="0.5" strokeWidth="1" />
+    <path d="M3 5L4.5 6.5M15 5L13.5 6.5" stroke="white" strokeOpacity="0.6" strokeWidth="1" strokeLinecap="round" />
+    <path d="M3 5H15L13.5 6.5H4.5L3 5Z" fill="white" fillOpacity="0.3" />
+  </svg>
+);
+
+const IconG: React.FC = () => (
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <text x="3" y="14" fontFamily="Georgia, serif" fontSize="14" fontWeight="bold" fill="white" fillOpacity="0.9">G</text>
+  </svg>
+);
+
 const IconPresentation: React.FC = () => (
   <svg width="16" height="14" viewBox="0 0 16 14" fill="none">
     <rect
@@ -191,22 +206,128 @@ export const PromptInputBox: React.FC<PromptInputBoxProps> = ({
   const hasText = displayText.length > 0;
   const cursorVisible = frame % 20 < 10;
 
+  // ── Dark card (cardOnly mode) ─────────────────────────────────────────────────
+  const darkCard = (
+    <div style={{
+      width: "100%",
+      background: "linear-gradient(135deg, #FFD600 0%, #FF589B 100%)",
+      borderRadius: 28,
+      padding: 1,
+      boxShadow: "0 8px 48px rgba(0,0,0,0.6)",
+    }}>
+      <div style={{
+        background: "#0D0D0D",
+        borderRadius: 26,
+        overflow: "hidden",
+      }}>
+        {/* ── Textarea + top-right icons ─────────────────────────── */}
+        <div style={{
+          padding: "28px 28px 16px",
+          minHeight: 140,
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 16,
+        }}>
+          {/* Text area */}
+          <div style={{
+            fontSize: 20,
+            color: hasText ? "#FFFFFF" : "#6A6A6A",
+            fontWeight: theme.font.weightRegular,
+            lineHeight: 1.65,
+            flex: 1,
+            letterSpacing: 0.1,
+            fontFamily: theme.font.family,
+          }}>
+            {hasText ? (
+              <>
+                {displayText}
+                {showCursor && (
+                  <span style={{
+                    display: "inline-block",
+                    width: 2,
+                    height: 22,
+                    background: "#FFFFFF",
+                    marginLeft: 2,
+                    opacity: cursorVisible ? 1 : 0,
+                    verticalAlign: "middle",
+                    borderRadius: 1,
+                  }} />
+                )}
+              </>
+            ) : (hidePlaceholder || showCursor) ? (
+              showCursor && (
+                <span style={{
+                  display: "inline-block",
+                  width: 2,
+                  height: 22,
+                  background: "#FFFFFF",
+                  opacity: cursorVisible ? 1 : 0,
+                  verticalAlign: "middle",
+                  borderRadius: 1,
+                }} />
+              )
+            ) : (
+              "e.g. Summer sale campaign for a coffee brand, warm and inviting tone..."
+            )}
+          </div>
+        </div>
+
+        {/* ── Bottom row ────────────────────────────────────────────── */}
+        <div style={{
+          padding: "8px 24px 22px",
+          display: "flex",
+          alignItems: "center",
+        }}>
+          <div style={{
+            width: 46,
+            height: 46,
+            borderRadius: 13,
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.10)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}>
+            <IconClip />
+          </div>
+          <div style={{ flex: 1 }} />
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "13px 28px",
+            background: generateHighlighted ? "#FFD600" : "rgba(255,255,255,0.10)",
+            borderRadius: 10,
+            flexShrink: 0,
+          }}>
+            <IconSparkle color={generateHighlighted ? "#0A0A0A" : "rgba(255,255,255,0.5)"} />
+            <span style={{
+              fontSize: 15,
+              fontWeight: theme.font.weightMedium,
+              color: generateHighlighted ? "#0A0A0A" : "rgba(255,255,255,0.6)",
+              letterSpacing: 0.2,
+              fontFamily: theme.font.family,
+            }}>
+              Generate
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // ── Light card (full / non-cardOnly mode) ─────────────────────────────────────
   const card = (
     <div
       style={{
         width: "100%",
-        background: cardOnly
-          ? "rgba(255,255,255,0.07)"
-          : "rgba(255,255,255,0.2)",
+        background: "rgba(255,255,255,0.2)",
         backdropFilter: "blur(22px)",
         WebkitBackdropFilter: "blur(22px)",
         borderRadius: 28,
-        border: cardOnly
-          ? "1px solid rgba(255,255,255,0.12)"
-          : "1px solid rgba(255,255,255,0.35)",
-        boxShadow: cardOnly
-          ? "0 4px 32px rgba(0,0,0,0.4)"
-          : "0 4px 24px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.8) inset",
+        border: "1px solid rgba(255,255,255,0.35)",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.8) inset",
         overflow: "hidden",
       }}
     >
@@ -221,15 +342,7 @@ export const PromptInputBox: React.FC<PromptInputBoxProps> = ({
         }}
       >
         <Pill icon={<IconPresentation />} label="Social Post" large />
-        <div
-          style={{
-            width: 1,
-            height: 24,
-            marginLeft: 4,
-            marginRight: 8,
-            flexShrink: 0,
-          }}
-        />
+        <div style={{ width: 1, height: 24, marginLeft: 4, marginRight: 8, flexShrink: 0 }} />
       </div>
 
       {/* ── Textarea ─────────────────────────────────────────────────── */}
@@ -327,13 +440,7 @@ export const PromptInputBox: React.FC<PromptInputBoxProps> = ({
           }}
         >
           <span style={{ display: "flex", alignItems: "center" }}>
-            <IconSparkle
-              color={
-                generateHighlighted
-                  ? "rgba(255,255,255,0.8)"
-                  : "rgba(0,0,0,0.28)"
-              }
-            />
+            <IconSparkle color={generateHighlighted ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.28)"} />
           </span>
           <span
             style={{
@@ -354,7 +461,7 @@ export const PromptInputBox: React.FC<PromptInputBoxProps> = ({
   // ── Card-only mode ────────────────────────────────────────────────────────────
   if (cardOnly) {
     return (
-      <div style={{ width: "100%", fontFamily: theme.font.family }}>{card}</div>
+      <div style={{ width: "100%", fontFamily: theme.font.family }}>{darkCard}</div>
     );
   }
 

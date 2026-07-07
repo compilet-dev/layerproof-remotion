@@ -1,5 +1,5 @@
 import React from 'react';
-import { interpolate } from 'remotion';
+import { interpolate, staticFile } from 'remotion';
 import { useTheme } from '../../../lib/theme';
 import LogoAvatar from './shared/LogoAvatar';
 import ContentLines from './shared/ContentLines';
@@ -49,7 +49,7 @@ export const FacebookMockup: React.FC<{ charsToShow: number; frame: number }> = 
 
       {/* ── 1.91:1 Image ── */}
       <div style={{ flexShrink: 0 }}>
-        <PostImage ratio="1.91 / 1" src={require('../../../assets/post_facebook.jpg')} platformColor="#1877F2" />
+        <PostImage ratio="1.91 / 1" src={staticFile('social-posts/post_facebook.jpg')} platformColor="#1877F2" />
       </div>
 
       {/* ── Reaction bar ── */}

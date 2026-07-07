@@ -1,5 +1,5 @@
 import React from 'react';
-import { interpolate } from 'remotion';
+import { interpolate, staticFile } from 'remotion';
 import { useTheme } from '../../../lib/theme';
 import LogoAvatar from './shared/LogoAvatar';
 import ContentLines from './shared/ContentLines';
@@ -64,7 +64,7 @@ export const LinkedInMockup: React.FC<{
       </div>
 
       {/* ── 1.91:1 Image ── */}
-      <PostImage ratio="1.91 / 1" src={require('../../../assets/post_linkedin.jpg')} platformColor="#0A66C2" />
+      <PostImage ratio="1.91 / 1" src={staticFile('social-posts/post_linkedin.jpg')} platformColor="#0A66C2" />
 
       {/* ── Reactions ── */}
       <div style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: 4, borderBottom: '1px solid #e0e0e0' }}>

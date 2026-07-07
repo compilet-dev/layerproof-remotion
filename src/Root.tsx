@@ -9,6 +9,7 @@ import { LayerProofVellumMaster } from './compositions/LayerProofVellumMaster';
 import { LayerProofVellumNodeDemo } from './compositions/LayerProofVellumNodeDemo';
 import { PromptMultiPlatform } from './compositions/gifs/PromptMultiPlatform';
 import { AISlideStack } from './compositions/gifs/AISlideStack';
+import { LayerProofBrandKit } from './compositions/LayerProofBrandKit';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -72,6 +73,16 @@ export const RemotionRoot: React.FC = () => {
         width={1200}
         height={675}
         posterFrame={50}
+      />
+
+      {/* Brand Kit Feature Video — 57s */}
+      <Composition
+        id="layerproof-brand-kit"
+        component={LayerProofBrandKit}
+        durationInFrames={1679}
+        fps={30}
+        width={1920}
+        height={1080}
       />
     </>
   );

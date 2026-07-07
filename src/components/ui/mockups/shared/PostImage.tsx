@@ -18,7 +18,8 @@ export const PostImage: React.FC<{
     }}
   >
     <img
-      src={src ?? require('../../../../assets/post_image.jpg')}
+      src={src}
+      onError={(e) => { (e.target as HTMLImageElement).src = require('../../../../assets/post_image.jpg'); }}
       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
     />
   </div>

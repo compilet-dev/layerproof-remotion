@@ -145,7 +145,7 @@ export const Cursor: React.FC<CursorProps> = ({
           willChange:      'transform',
         }}
       >
-        <CursorSVG scale={2.0} pressed={pressed} tiltDeg={tiltDeg} />
+        <CursorSVG scale={2.8} pressed={pressed} tiltDeg={tiltDeg} />
       </div>
     </div>
   );

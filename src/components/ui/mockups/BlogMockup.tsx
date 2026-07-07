@@ -1,4 +1,5 @@
 import React from 'react';
+import { staticFile } from 'remotion';
 import { useTheme } from '../../../lib/theme';
 import Avatar from './shared/Avatar';
 import ContentLines from './shared/ContentLines';
